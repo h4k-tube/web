@@ -16,7 +16,7 @@
     "@types/lodash": "^4.14.109",
     "@types/lru-cache": "4.1.1",
     "@types/request": "ts2.9",
-    "h4ktube-commons": "https://github.com/h4k-tube/commons/archive/201807090956.tar.gz",
+    "h4ktube-commons": "https://github.com/h4k-tube/commons/releases/download/0.1.2/h4ktube-commons-v0.1.2.tgz",
     "algoliasearch": "^3.27.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
