@@ -5,7 +5,7 @@ import * as lru from 'lru-cache'
 import * as algolia from 'algoliasearch'
 
 import { Request, Response } from 'express'
-import { Fastr, dnsCache, Logger } from 'devtube-commons'
+import { Fastr, dnsCache, Logger } from 'h4ktube-commons'
 
 // Configuration settings
 const algoliaAppId = 'DR90AOGGE9'
@@ -81,8 +81,11 @@ let featuredOrUndefined = () => {
 async function proxy(req: Request, res: Response) {
   console.log(`REQUEST PATH: ${req.path}`)
   if (!req.path || req.path == '/') {
+
     let title = 'DevTube - The best developer videos in one place'
     let description = 'Enjoy the best technical videos and share it with friends, colleagues, and the world.'
+    const domain = 'h4k.tube';
+
     res.render('index.html', {      
       title: title,
       fuseMode: fuseMode,
@@ -92,16 +95,19 @@ async function proxy(req: Request, res: Response) {
         { name: "description", content: description },
         { name: "og:title", content: title },
         { name: "og:description", content: description },
-        { name: "og:image", content: 'https://dev.tube/open_graph.jpg' },
+        { name: "og:image", content: 'https://' + domain + '/open_graph.jpg' },
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
-        { name: 'twitter:image', content: 'https://dev.tube/open_graph.jpg' }
+        { name: 'twitter:image', content: 'https://' + domain + '/open_graph.jpg' }
       ]
     })
-  } else if (req.path.startsWith("/@")) {
+    } else if (req.path.startsWith("/@")) {
+
     let speaker = req.path.split("/@")[1]
     let title = `DevTube - Videos by @${speaker}`
     let description = 'Enjoy the best technical videos and share it with friends, colleagues, and the world.'
+    const domain = 'h4k.tube';
+
     res.render('index.html', {
       title: title,
       featured: featuredOrUndefined(),
@@ -111,16 +117,19 @@ async function proxy(req: Request, res: Response) {
         { name: "description", content: description },
         { name: "og:title", content: title },
         { name: "og:description", content: description },
-        { name: "og:image", content: 'https://dev.tube/open_graph.jpg' },
+        { name: "og:image", content: 'https://' + domain + '/open_graph.jpg' },
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
-        { name: 'twitter:image', content: 'https://dev.tube/open_graph.jpg' }
+        { name: 'twitter:image', content: 'https://' + domain + '/open_graph.jpg' }
       ]
     })
-  } else if (req.path.startsWith("/tag/")) {
+    } else if (req.path.startsWith("/tag/")) {
+
     let tag = req.path.split("/tag/")[1]
     let title = `DevTube - Videos by topic @${tag}`
     let description = 'Enjoy the best technical videos and share it with friends, colleagues, and the world.'
+    const domain = 'h4k.tube';
+
     res.render('index.html', {
       title: title,
       featured: featuredOrUndefined(),
@@ -129,10 +138,10 @@ async function proxy(req: Request, res: Response) {
         { name: "description", content: description },
         { name: "og:title", content: title },
         { name: "og:description", content: description },
-        { name: "og:image", content: 'https://dev.tube/open_graph.jpg' },
+        { name: "og:image", content: 'https://' + domain + '/open_graph.jpg' },
         { name: 'twitter:title', content: title },
         { name: 'twitter:description', content: description },
-        { name: 'twitter:image', content: 'https://dev.tube/open_graph.jpg' }
+        { name: 'twitter:image', content: 'https://' + domain + '/open_graph.jpg' }
       ]
     })    
   } else if (req.path.startsWith("/search") && fuseMode) {

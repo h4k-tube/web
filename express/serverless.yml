@@ -1,14 +1,14 @@
-service: devtube-proxy
+service: h4ktube-proxy
 
 provider:
   name: google
   runtime: nodejs
-  project: dev-tube
+  project: h4k-tube
   credentials: service_key.json
   memorySize: 512
   timeout: 540s
   labels:
-    application: DevTube Proxy
+    application: H4kTube Proxy
 
 plugins:
   - serverless-google-cloudfunctions

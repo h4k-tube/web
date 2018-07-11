@@ -74,7 +74,7 @@
                           h1.title
                             i.far.fa-times-circle 
                             |  No videos matching your query
-                          a.button(href="https://github.com/watch-devtube/contrib" target="_blank")
+                          a.button(href="https://github.com/h4k-tube/contrib" target="_blank")
                             span.icon: i.fab.fa-github
                             span Contribute
                         //- .notification.is-danger(v-if="!props.query") 
