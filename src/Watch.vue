@@ -10,7 +10,7 @@
         .level-right
           .level-item.is-size-4
             .buttons
-              a.button.is-info.is-outlined(:href="'https://github.com/watch-devtube/contrib/edit/master/videos/' + video.objectID + '.yml'" target="_blank")
+              a.button.is-info.is-outlined(:href="'https://github.com/h4k-tube/contrib/edit/master/videos/' + video.objectID + '.yml'" target="_blank")
                 span.icon: i.fab.fa-github
                 span Edit info   
               a.button.is-info.is-outlined(href="/") 
@@ -70,13 +70,13 @@
               span.tag.is-capitalized 
                 i.fab.fa-youtube 
                 | &nbsp; {{video.channelTitle}}
-              a.tag.clickable.is-capitalized(:href="'https://github.com/watch-devtube/contrib/edit/master/videos/' + video.objectID + '.yml'" target="_blank"): i.fas.fa-edit
+              a.tag.clickable.is-capitalized(:href="'https://github.com/h4k-tube/contrib/edit/master/videos/' + video.objectID + '.yml'" target="_blank"): i.fas.fa-edit
             p {{video.description}}
             .addthis_inline_share_toolbox
       RelatedVideos(:videoId="video.objectID" :channel="video.channelTitle" :featured="video.featured" :tags="video.tags" :speakerTwitter="video.speaker ? video.speaker.twitter : ''")
       MessageWidget(:videoId="video.objectID" :channel="video.channelTitle" :tags="video.tags" :speakerTwitter="video.speaker ? video.speaker.twitter : ''")
       .comments
-        vue-disqus(shortname="dev-tube" :identifier="id" :url="'https://dev.tube/video/' + id")
+        vue-disqus(shortname="h4k-tube" :identifier="id" :url="'https://h4k.tube/video/' + id")
 </template>
 <style scoped lang="scss">
   body {
